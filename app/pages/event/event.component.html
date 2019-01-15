@@ -1,0 +1,83 @@
+
+    
+    <!-- filter buttons -->
+    <div class="row wrapper filterPart" >
+
+
+            <div class="row" class="toggleFilter">
+                
+        
+                    <!-- <div > -->
+        
+    
+                         <button *ngFor="let filterButton of filterButtons" class="btn-{{ filterButton.class }}"  (click)="selectThisButton(filterButton)" > 
+                             <i class="fa {{ filterButton.icon }}"></i>
+    
+                            {{ filterButton.title }}
+                        </button>
+                    
+        
+                    <!-- </div> -->
+            
+            </div>   
+        
+      </div>
+    
+    
+    <div class="wrapper wrapper-content">
+
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="ibox float-e-margins">
+
+                  <div class="ibox-title">
+                      <h5> New Events </h5>
+                      <div class="ibox-tools">
+                          <a class="collapse-link">
+                              <i class="fa fa-calendar"></i>
+                          </a>
+                          <!-- <a class="close-link">
+                              <i class="fa fa-times"></i>
+                          </a> -->
+                      </div>
+                  </div>
+
+                  <div class="ibox-content ibox-heading">
+                      <h3><i class="fa fa-calendar"></i> All events for you </h3>
+                      <small><i class="fa fa-tim"></i> Total Number of events {{ allDeals.length }} </small>
+                  </div>
+                  
+                  <div class="ibox-content">
+                      <div class="feed-activity-list">
+  
+                            <p class="text-muted text-center" *ngIf="allDeals.length == 0"> Sorry, please there are no events at the moment, please check back later. </p>
+
+  
+                          <div class="feed-element"  *ngFor="let feed of allDeals">
+                              <div>
+                                  <div class="pull-left feedImage">
+                                      <img src="../../../assets/img/avatar/avatar.png">
+                                  </div>
+  
+                                  <strong class="pull-right text-navy font18"> <span > <i class="fa fa-bookmark"></i> </span>  </strong>
+  
+                                          <strong> {{ fee?.title }} </strong>
+                                          <div> {{ fee?.description }} </div>
+                                          <small class="text-muted"> {{ fee?.timeStamp  }} </small>   
+  
+                                  <strong class="pull-right text-navy font18"> <span > <i class="fa fa-heart "></i> </span>  </strong>
+  
+                              </div>
+                          </div>
+  
+  
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+         
+  
+      </div>
+  </div>

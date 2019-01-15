@@ -1,0 +1,102 @@
+
+    <div class="wrapper wrapper-content">
+
+      <div class="row">
+           
+        <div class="col-lg-6">
+
+
+                    <div class="ibox float-e-margins">
+
+
+                        <div class="ibox-title">
+
+                            <h5> Tags to get notified of ...</h5>
+
+                            <div class="ibox-tools">
+
+                                <a class="collapse-link">
+                                    <i class="fa fa-gift"></i>
+                                </a>
+
+                            </div>
+      
+                        </div>
+      
+      
+                        <div class="ibox-content ibox-heading nav-header nav-header-style1">
+                            <h3> <i class="fa fa-star"></i> Add a keyword to get notified </h3>
+                        </div>
+      
+      
+                        <div class="ibox-content">
+                            <div class="feed-activity-list">
+        
+                                    
+                                <div class="feed-element" >
+
+                                        <div class="col-lg-12 addingKeyword"> 
+
+                                            <div class="col-lg-10">
+                                                    <input id="keyword" type="text" placeholder="New Keyword" [(ngModel)]="keywordValue" >
+                                            </div>
+
+                                            <div class="col-lg-2">
+                                                    <button class="btn btn-success" (click)="addThisKeyword()" > Add <i class="fa fa-plus"></i> </button> 
+                                            </div>
+
+                                        </div>
+
+                                        <br>
+            
+                                        <p class="text-muted text-center" *ngIf="allWishlists.length == 0"> There are no tagged keywords, add some to get notified... </p>
+
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <div class="col-lg-12"> 
+      
+
+                                                <div class="feed-element"  *ngFor="let feed of allWishlists" >
+
+                                                        <div class="row">
+                              
+                                                            <div class="col-lg-12"> 
+                              
+                              
+                                                                  <div class="col-lg-10">  
+                              
+                                                                        <i class="fa fa-star"></i>  <strong> {{feed.keywords[0]}} </strong>
+
+                                                                  </div>
+                              
+                                                                  <div class="col-lg-2 displayFlex" >  
+                                                                      
+                                                                        <i id="cursored" class="fa fa-trash" (click)="removeThisKeyword(feed)" ></i>
+                              
+                                                                  </div>
+                              
+                                                            </div>
+                              
+                                                        </div>
+                              
+                              
+                                                    </div>
+                              
+
+                                        </div>
+      
+                                </div>
+
+        
+                            </div>
+                        </div>
+      
+      
+                    </div>
+      
+      
+            </div>
+      </div>
+  </div>

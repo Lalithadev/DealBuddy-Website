@@ -1,0 +1,28 @@
+.toggleFilter{
+    border: 1px solid #eee; 
+    border-radius: 30px; 
+    box-shadow: 0 0 5px #ccc; 
+    width: 30%; 
+    padding: 5px; 
+    margin: 0 auto;
+}
+
+.toggleFilter button{
+    border: none; 
+    border-radius: 30px; 
+    padding: 10px; 
+}
+
+.feedImage{
+    margin-right: 10px;
+}
+
+.feedImage img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.font18{
+    font-size: 18px;
+}

@@ -1,0 +1,123 @@
+
+
+<div class="wrapper wrapper-content">
+
+  <div class="row">
+      <div class="col-lg-8">
+
+
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5> Search Results </h5>
+                  <div class="ibox-tools">
+                      <a class="collapse-link">
+                          <i class="fa fa-gift"></i>
+                      </a>
+                      <!-- <a class="close-link">
+                          <i class="fa fa-times"></i>
+                      </a> -->
+                  </div>
+              </div>
+
+
+              <div class="ibox-content ibox-heading nav-header-style1">
+                  <h3><i class="fa fa-search"></i> Your search results </h3>
+                  <small><i class="fa fa-time"></i> Total Number of results {{ allDeals.length }} </small>
+              </div>
+
+
+              <div class="ibox-content">
+                  <div class="feed-activity-list">
+
+                    
+                    <p class="text-muted text-center" *ngIf="allDeals.length == 0"> There are no results at the moment, please check back later </p>
+
+                      <div class="feed-element"  *ngFor="let feed of allDeals">
+
+                          <div class="row">
+
+                              <div class="col-lg-12"> 
+
+                                    <div class="col-lg-2"> 
+
+                                            <div class="pull-left feedImage" *ngIf="feed.imageUrl.length > 6">
+                                                    <img src="{{ feed.imageUrl }}">
+                                            </div>
+
+                                            <div class="pull-left feedImage" *ngIf="feed.base64ImageBytes.length > 20" >
+                                                    <!-- <img [src]="'data:image/jpg;base64,'+feed.base64ImageBytes" /> -->
+                                                    <img [src]="feed.base64ImageBytes | safeContent " />
+                                            </div>
+
+                                            
+                                           <div class="pull-left feedImage" *ngIf="feed?.base64ImageBytes == null && feed.imageUrl == length" >
+                                                
+                                                    <img src="../../../assets/img/coupon.png" />
+                                            </div>
+
+                                    </div>
+
+                                    <div class="col-lg-8">  
+
+                                            <strong> {{ feed?.title }} </strong>
+                                            <p> {{ feed?.description }} </p>
+                                            <small class="text-muted"> {{ feed?.timeStamp  }} </small>
+
+                                    </div>
+
+                                    <div class="col-lg-2 displayFlex" >  
+
+                                                    <span > <i class="fa fa-thumbs-up"></i> </span> 
+
+
+                                                    <span > <i class="fa fa-heart "></i> </span>
+
+
+                                                    <span> <i class="fa fa-bookmark"></i> </span>
+
+                                    </div>
+
+                              </div>
+
+                          </div>
+
+
+                      </div>
+
+
+
+                  </div>
+              </div>
+
+
+          </div>
+
+
+      </div>
+
+      <div class="col-lg-4">
+
+            <div class="ibox float-e-margins advertisement">
+                
+                    <div class="ibox-title">
+                            <h5> Be the first to get from the best </h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-gift"></i>
+                                </a>
+                                <!-- <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a> -->
+                            </div>
+                        </div>
+
+                        <div class="ibox-content" routerLink="/deals">
+                                <img src="{{advertisementImage}}">
+                        </div>
+
+            </div>
+
+      </div>
+
+  </div>
+</div>

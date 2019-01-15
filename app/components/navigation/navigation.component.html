@@ -1,0 +1,23 @@
+<nav class="navbar-default navbar-static-side" role="navigation"  >
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu" style="color: #fff !important">
+
+            
+
+            <li style="color: #fff !important"  *ngFor="let menu of sideMenuRoutes; let i= index;" routerLink="./{{menu.route}}" [ngClass]="{ active: activeRoute( menu.title.toLowerCase() ) === true }" >
+               
+                <div class="menuIcon" >
+                        <i class="fa {{menu.icon}}" aria-hidden="true"></i>
+                </div>
+
+                <div class="menuTitle" >
+                    
+                        <a style="color: #fff !important" >  <span class="nav-label"> {{menu.title}} </span></a>
+                
+                </div>
+
+            </li>
+
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,34 @@
+
+
+<div id="wrapper">
+
+
+    <ngx-loading-bar color="#ebad33" height="4" includeSpinner="false"	 ></ngx-loading-bar>
+
+
+    <topnavbar></topnavbar>
+
+
+    <navigation  [loginInfo]="loginInfo" *ngIf="loginInfo"></navigation>
+
+
+    <div id="page-wrapper2" class="gray-bg" >
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+    <!-- <div id="page-wrapper" class="gray-bg" >
+
+      <div class="footer">
+
+        <div>
+          <strong>Copyright</strong> Vamis &copy; 2018
+        </div>
+        
+      </div>
+
+    </div> -->
+
+  
+</div>

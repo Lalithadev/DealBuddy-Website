@@ -1,0 +1,63 @@
+
+            
+        <div class="nav-header row">
+
+                    <!-- search feature -->
+                    <div class="searchBar col-lg-12">
+            
+
+                        <span style="margin-top: 40px">
+
+                                <div class="signup bold"  routerLink="/" >
+                                        <p> DEALBUDDY </p>
+                                </div>
+
+                        </span>      
+
+
+
+                        <span style="margin-top: 40px">
+                                
+                                <div>
+                                                <input type="text" placeholder="Enter search keyword and press enter to search"   [(ngModel)]="searchKeyword" (keyup)="searchThisKeyword($event)"  >
+                                                <button (click)="searchThisKeyword( e = { keyCode : 13} )" > <i class="fa fa-search" ></i> </button>
+                                </div>
+                          
+                        </span>
+                      
+
+                                                
+                        <span style="margin-top: 40px">
+
+                                        <div class="signup" routerLink="/profile" >
+        
+                                                        <p *ngIf="utils.returnLoggedInOrNot() == false" > Login / Signup </p>
+                                                        <p *ngIf="utils.returnLoggedInOrNot() == true" (click)="logTheUserOut()" > Log out </p>
+        
+                                        </div>
+        
+                                   
+                        </span>
+
+
+
+
+                        <span>
+
+                                        <div class="signup" routerLink="/coupons" >
+                                             <img src="../../../assets/img/product_advert.png" style="width: auto; height: auto">
+                                        </div>
+                                                
+                        </span>
+
+             
+
+
+
+                 
+
+                    </div>
+             
+                
+                      
+        </div>

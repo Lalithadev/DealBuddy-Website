@@ -1,0 +1,19 @@
+.side-menu *{
+    color:  #fff !important;
+}
+
+.nav li{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    margin: 30px auto;
+    font-size: 18px;
+}
+
+
+.navbar-default{
+      height: 100vh;
+      /* position: fixed; */
+      width: 100px;
+      background-color: #00A289;
+}

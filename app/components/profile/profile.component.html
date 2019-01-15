@@ -1,0 +1,236 @@
+
+
+<div class="row userProfileInfo">
+
+  <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="showChooseState">
+
+
+    <div class="chooseWhereTogo">
+        <h2> Please choose your current state </h2>
+          
+        <button class="btn btn-success" (click)="chooseOption('register')" > I am new here </button>
+        <button class="btn btn-danger" (click)="chooseOption('login')" > I already have an account </button>
+
+
+    </div>
+      
+  </div>
+
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12" [hidden]="showChooseState == true">
+
+          <!-- when the user is not logged in -->
+          <div #register id="registerCompo" class="col-lg-6 register" >
+  
+              <form>
+                      <h3 class="text-center"> Setup New Profile ( Register ) </h3>
+
+                          <hr>
+
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputEmail3" placeholder="Name" [(ngModel)]="userProfileInfo.firstName" name="name" >
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputPassword3" placeholder="Email" [(ngModel)]="userProfileInfo.userEmail" name="email" >
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-2 col-form-label">Zip Code</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Zip Code e.g ( 1087 )" [(ngModel)]="userProfileInfo.zipCode" name="zipcode" >
+                              </div>
+                      </div>
+
+                      <fieldset class="form-group">
+
+                        <div class="row">
+                          <label class="col-form-label col-sm-2"> Email Alerts  </label>
+
+                          <div class="col-sm-10">
+
+                          <!--                             
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="emailAlerts" value="false" [(ngModel)]="userProfileInfo.emailEnabled" name="sendemail">
+                              <label class="form-check-label" for="emailAlerts">
+                                No emails
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="noemailAlerts" value="true" [(ngModel)]="userProfileInfo.emailEnabled" name="noemail" > 
+                              <label class="form-check-label" for="noemailAlerts">
+                                Send me the best deals
+                              </label>
+                            </div> -->
+                         
+
+                              <!-- <label class="switch">
+                                <input type="checkbox" [(ngModel)]="userProfileInfo.emailEnabled" name="noemail" >
+                                <span class="slider round"> </span>
+                              </label> -->
+
+                              <div class="onoffswitch">
+                                  <input type="checkbox" [(ngModel)]="userProfileInfo.emailEnabled" name="onoffswitch" class="onoffswitch-checkbox" id="emailonoffswitch" checked>
+                                  <label class="onoffswitch-label" for="emailonoffswitch">
+                                      <span class="onoffswitch-inner"></span>
+                                      <span class="onoffswitch-switch"></span>
+                                  </label>
+                              </div>
+
+                          </div>
+                        </div>
+
+                      </fieldset>
+
+
+                      <fieldset class="form-group">
+
+                              <div class="row">
+                                <label class="col-form-label col-sm-2"> Push Alerts  </label>
+
+                                <div class="col-sm-10">
+                                <!--                                   
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="notifications" value="true" [(ngModel)]="userProfileInfo.pnsEnabled" name="notifications" >
+                                    <label class="form-check-label" for="notifications">
+                                      Send Notifications
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="nonotifications" value="false" [(ngModel)]="userProfileInfo.pnsEnabled" name="nonotifications" > 
+                                    <label class="form-check-label" for="nonotifications">
+                                      No Notifications
+                                    </label>
+                                  </div> -->
+                               
+
+                                  <!-- Rounded switch -->
+                                <!-- <label class="switch">
+                                  <input type="checkbox" [(ngModel)]="userProfileInfo.pnsEnabled" name="nonotifications" >
+                                  <span class="slider round"> </span>
+                                </label> -->
+
+
+                                <div class="onoffswitch">
+                                    <input type="checkbox" [(ngModel)]="userProfileInfo.pnsEnabled" name="onoffswitch" class="onoffswitch-checkbox" id="pushonoffswitch" checked>
+                                    <label class="onoffswitch-label" for="pushonoffswitch">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+
+                          
+                                </div>
+                              </div>
+
+                      </fieldset>
+
+                      <fieldset class="form-group">
+
+                              <div class="row">
+                                <label class="col-form-label col-sm-2"> Gender  </label>
+
+                                <div class="col-sm-10">
+
+                                  <!-- <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios2" id="male" value="male" [(ngModel)]="userProfileInfo.gender" name="male" >
+                                    <label class="form-check-label" for="male">
+                                      Male 
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios2" id="female" value="female" [(ngModel)]="userProfileInfo.gender" name="female" >
+                                    <label class="form-check-label" for="female">
+                                      Female
+                                    </label>
+                                  </div> -->
+                               
+                                    <!-- <label class="switch">
+                                      <input type="checkbox" name="gender" >
+                                      <span class="slider round"> </span>
+                                    </label> -->
+            
+                                    <div class="onoffswitch">
+                                        <input type="checkbox"  [(ngModel)]="userProfileInfo.gender" name="onoffswitch" class="onoffswitch-checkbox" id="genderonoffswitch" checked>
+                                        <label class="onoffswitch-label" for="genderonoffswitch">
+                                            <span class="onoffswitch-innerGender"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+
+
+                                </div>
+                              </div>
+
+                      </fieldset>
+
+
+                      <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary" (click)="setThisProfile()" > {{btnTitle}} </button>
+                        </div>
+                      </div>
+                      
+                    </form>
+
+          </div>
+         
+
+          <div  #login  id="loginCompo" class="col-lg-6 login">
+              
+              
+                <form>
+                    <h3 class="text-center"> Add your profile ( Login ) </h3>
+
+                      <hr>
+                    
+                    <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Profile Email</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword3" placeholder="Profile Email" [(ngModel)]="loginUserProfile.email" name="zipcode" >
+                            </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary" (click)="sendMeTheVerificationCode()" >Send me code</button>
+                      </div>
+                    </div>
+                    
+                  </form>
+
+                  <br>
+                  
+                  <form>
+                      <p class="text-center text-muted"> <i class="fa fa-exclamation"></i> After verifiy the email code sent to you </p>
+    
+                        <hr>
+                      
+                      <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-2 col-form-label">Email verification code</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword3" placeholder="Email Code" [(ngModel)]="loginUserProfile.code" name="zipcode" >
+                              </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-warning" (click)="verifyTheCode()" >Verifiy my code</button>
+                        </div>
+                      </div>
+                      
+                    </form>
+                    
+            </div>
+  
+     </div>
+
+</div>
+

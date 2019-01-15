@@ -1,0 +1,22 @@
+p{
+    color: black;
+}
+
+#page-wrapper2 {
+    padding: 0 5px;
+    min-height: 168px;
+    /* position: relative !important; */
+  }
+
+
+  @media (min-width: 768px) {
+    #page-wrapper2 {
+      /* position: inherit; */
+      margin: 0 0 0 100px;
+      min-height: 60%;
+      height: 100vh;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+
+  }

@@ -1,0 +1,121 @@
+
+    
+    <!-- filter buttons -->
+    <div class="row wrapper filterPart" >
+
+
+            <div class="row" class="toggleFilter">
+                
+        
+                    <!-- <div > -->
+        
+    
+                         <button *ngFor="let filterButton of filterButtons" class="btn-{{ filterButton.class }}"  (click)="selectThisButton(filterButton)" > 
+                             <i class="fa {{ filterButton.icon }}"></i>
+    
+                            {{ filterButton.title }}
+                        </button>
+                    
+        
+                    <!-- </div> -->
+            
+            </div>   
+        
+      </div>
+
+    <div class="wrapper wrapper-content">
+
+      <div class="row">
+          <div class="col-lg-8">
+
+
+              <div class="ibox float-e-margins">
+                  <div class="ibox-title">
+                      <h5> New Deals </h5>
+                      <div class="ibox-tools">
+                          <a class="collapse-link">
+                              <i class="fa fa-gift"></i>
+                          </a>
+                          <!-- <a class="close-link">
+                              <i class="fa fa-times"></i>
+                          </a> -->
+                      </div>
+                  </div>
+
+
+                  <div class="ibox-content ibox-heading nav-header">
+                      <h3><i class="fa fa-star"></i> New Deals </h3>
+                      <small><i class="fa fa-tim"></i> Total Number of deals {{ allDeals.length }} </small>
+                  </div>
+
+
+                  <div class="ibox-content">
+                      <div class="feed-activity-list">
+  
+                        
+                        <p class="text-muted text-center" *ngIf="allDeals.length == 0"> There are no deals at the moment, please check back later </p>
+
+                          <div class="feed-element"  *ngFor="let feed of allDeals; trackBy: trackItem">
+
+                              <div class="row">
+
+                                  <div class="col-lg-12"> 
+
+                                        <div class="col-lg-2"> 
+
+
+
+                                                <div class="pull-left feedImage" *ngIf="feed?.base64ImageBytes == null " >
+                                                    
+                                                        <img src="../../../assets/img/deals_2.png" />
+
+                                                </div>
+
+
+                                               <div class="pull-left feedImage" *ngIf="feed?.base64ImageBytes !== null " >
+                                                    
+                                                        <img [src]="feed.base64ImageBytes | safeContent " onerror=" this.onerror=null;this.src='../../../assets/img/deals_2.png' "   />
+                                                </div>
+
+
+
+                                        </div>
+
+                                        <div class="col-lg-8">  
+
+                                                <h3> {{ feed?.title }} </h3>
+                                                <p> {{ feed?.description }} </p>
+
+                                                <strong> <a target="_blank" href="{{feed?.url}}" > Get this deal <i class="fa fa-external-link"></i> </a> </strong>
+
+                                                <h4 class="text-muted"> <i class="fa fa-calendar"></i>   {{ feed?.formattedDate }} </h4>
+
+                                        </div>
+
+                                        <div class="col-lg-2 displayFlex" *ngIf="utils.returnLoggedInOrNot() == true" >  
+                                          
+                                            <span *ngFor="let userIntIcon of userInteractionIcons" (click)="bookmarkThisDeal(userIntIcon,feed)" > <i id="{{feed?.isBookmarked === true ? 'coloredRed': 'none'}}" class="fa {{userIntIcon.icon}}"></i> </span>
+
+
+                                        </div>
+
+                                  </div>
+
+                              </div>
+
+
+                          </div>
+  
+  
+  
+                      </div>
+                  </div>
+
+
+              </div>
+
+
+          </div>
+  
+      </div>
+  </div>

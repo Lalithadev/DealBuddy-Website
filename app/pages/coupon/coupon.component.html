@@ -1,0 +1,157 @@
+
+    
+    <!-- filter buttons -->
+    <div class="row wrapper filterPart" >
+
+
+            <div class="row" class="toggleFilter">
+                
+        
+                    <!-- <div > -->
+        
+    
+                         <button *ngFor="let filterButton of filterButtons" class="btn-{{ filterButton.class }}"  (click)="selectThisButton(filterButton)" > 
+                             <i class="fa {{ filterButton.icon }}"></i>
+    
+                            {{ filterButton.title }}
+                        </button>
+                    
+        
+                    <!-- </div> -->
+            
+            </div>   
+        
+      </div>
+
+
+<div class="wrapper wrapper-content" >
+
+      <div class="row">
+
+          <div class="col-lg-8">
+
+
+              <div class="ibox float-e-margins">
+                  <div class="ibox-title">
+                      <h5> New Coupons </h5>
+                      <div class="ibox-tools">
+                          <a class="collapse-link">
+                              <i class="fa fa-gift"></i>
+                          </a>
+                          <!-- <a class="close-link">
+                              <i class="fa fa-times"></i>
+                          </a> -->
+                      </div>
+                  </div>
+
+
+                  <div class="ibox-content ibox-heading nav-header">
+                      <h3><i class="fa fa-gift"></i> New Coupons </h3>
+                      <small><i class="fa fa-tim"></i> Total Number of coupons {{ allDeals.length }} </small>
+                  </div>
+
+
+                  <div class="ibox-content">
+                      <div class="feed-activity-list">
+  
+                        
+                            <p class="text-muted text-center" *ngIf="allDeals.length == 0"> There are no coupons at the moment, please check back later </p>
+
+                            <div class="feed-element"  *ngFor="let feed of allDeals">
+
+                                <div class="row">
+
+                                    <div class="col-lg-12"> 
+
+                                            <div class="col-lg-2"> 
+
+                                                    <div class="pull-left feedImage" *ngIf="feed?.imageUrl !== null">
+
+                                                            <span *ngIf="feed?.imageUrl.length > 6" >
+
+                                                                <img src="{{ feed?.imageUrl }}">
+
+                                                            </span>
+
+                                                    </div>
+
+                                                    <div class="pull-left feedImage" *ngIf="feed?.base64ImageBytes !== null" >
+
+                                                            <span *ngIf="feed?.base64ImageBytes.length > 6" >
+                                                                
+                                                                    <img [src]="feed.base64ImageBytes | safeContent " />
+        
+                                                            </span>
+
+                                                    </div>
+
+                                                    
+                                                    <div class="pull-left feedImage" *ngIf="feed?.base64ImageBytes == null && feed?.imageUrl == null" >
+                                                            
+                                                                <img src="../../../assets/img/coupon.png" />
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="col-lg-8">  
+
+                                                    <h3> <strong> {{ feed?.title }} </strong> </h3>                                                   
+                                                    <p> {{ feed?.description }} </p>
+                                                    <strong> <a target="_blank" href="{{feed?.url}}" > Get this coupon <i class="fa fa-external-link"></i> </a> </strong>
+                                                    <br>
+                                                    <h4 class="text-muted"> <i class="fa fa-calendar"></i>   {{ feed?.formattedDate }} </h4>
+
+                                            </div>
+
+                                            <div class="col-lg-2 displayFlex" *ngIf="utils.returnLoggedInOrNot() == true" >  
+
+
+                                                <span *ngFor="let userIntIcon of userInteractionIcons" (click)="bookmarkThisCoupon(userIntIcon,feed)" > <i id="{{feed?.isBookmarked === true ? 'coloredRed': 'none'}}" class="fa {{userIntIcon.icon}}"></i> </span>
+
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+    
+  
+  
+                        </div>
+                  </div>
+
+
+              </div>
+
+
+          </div>
+  
+          <div class="col-lg-4">
+
+                <div class="ibox float-e-margins advertisement">
+                    
+                        <div class="ibox-title">
+                                <h5> Be the first to get from the best </h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-gift"></i>
+                                    </a>
+                                    <!-- <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+
+                            <div class="ibox-content">
+                                    <img src="{{advertisementImage}}">
+                            </div>
+
+                </div>
+
+          </div>
+
+      <!-- </div> -->
+
+</div>

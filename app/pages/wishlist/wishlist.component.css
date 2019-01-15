@@ -1,0 +1,15 @@
+.addingKeyword button, #keyword{
+    padding: 10px;
+    width: 100%;
+}
+
+
+.addingKeyword input{
+    padding: 15px;
+    width: 100%;
+}
+
+
+.displayFlex #cursored{
+    cursor: pointer;
+}
